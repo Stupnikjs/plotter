@@ -1,13 +1,13 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import csv
+import sys
 
 
-plt.switch_backend('Agg')
 # Read the CSV file
-csv_file = 'buf.csv'
-
-n = 1000
+csv_file = sys.argv[1]
+print(csv_file)
+n =    5000
 
 import csv
 
@@ -21,7 +21,7 @@ with open(csv_file, newline='\n', encoding='utf-8', errors="replace") as csvfile
     for row in csv_reader:
         try: 
             num = int(row[0][:len(row[0]) - 2])
-            print(num)
+            # print(num)
             data.append(num)  # Convert to float for numeric plotting
         except ValueError: 
             pass
