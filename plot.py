@@ -7,23 +7,29 @@ plt.switch_backend('Agg')
 # Read the CSV file
 csv_file = 'buf.csv'
 
+n = 1000
+
 import csv
 
+
+data = []
 # Replace 'yourfile.csv' with the path to your CSV file
-with open(csv_file, newline='', encoding='utf-8') as csvfile:
+with open(csv_file, newline='\n', encoding='utf-8', errors="replace") as csvfile:
     csv_reader = csv.reader(csvfile)
     
     # Iterate over each row
     for row in csv_reader:
-        print(row)
-# Assuming the CSV has one column of sine wave values
-# Generate time values assuming the data is sampled at regular intervals
-sampling_rate = 0.1  # e.g., 0.1 seconds between samples
-time = np.arange(len(data)) * sampling_rate  # Create time array
+        try: 
+            num = int(row[0][:len(row[0]) - 2])
+            print(num)
+            data.append(num)  # Convert to float for numeric plotting
+        except ValueError: 
+            pass
+time = list(range(len(data)))
 
-# Plot the sine wave
 plt.figure(figsize=(10, 6))
-plt.plot(time[0:1000], data.iloc[:1000, 0], label='Sine Wave')  # Use iloc to access the first column
+
+plt.plot( time[:n], data[:n],  label='Sine Wave')  # Use iloc to access the first column
 
 # Adding labels and title
 plt.xlabel('Time (seconds)')
