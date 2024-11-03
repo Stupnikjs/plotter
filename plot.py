@@ -7,7 +7,7 @@ import sys
 # Read the CSV file
 csv_file = sys.argv[1]
 print(csv_file)
-n =    5000
+n =    400
 
 import csv
 
@@ -40,6 +40,3 @@ plt.grid(True)
 
 # Display the plot
 plt.show()  # This will now work since Agg backend is not used
-
-
-plt.savefig('sine_wave_plot.png')
