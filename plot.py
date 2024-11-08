@@ -4,10 +4,11 @@ import csv
 import sys
 
 
-# Read the CSV file
+# Read the CSV file 
 csv_file = sys.argv[1]
+
 print(csv_file)
-n =    400
+n = int(sys.argv[2])
 
 import csv
 
